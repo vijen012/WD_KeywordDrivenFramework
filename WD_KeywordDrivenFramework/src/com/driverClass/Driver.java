@@ -61,12 +61,10 @@ public class Driver
 		//System.out.println("SheetName : "+excelSheet.getSheetName() + " || " + "Row Count : " +rowCount+ " || " + "Column Count : "+columnCount);
 		for(int iRow = 1; iRow < rowCount; iRow++)
 		{
-			for(int iCol = 0; iCol < columnCount; iCol++)
-			{
-				System.out.println(excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, iCol));
-				String testCaseName = excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, Constant.TESTCASE_ID);
-				String testCaseRunMode = excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, Constant.RUNMODE);
-			}
+			String testCaseName = excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, Constant.TESTCASE_ID);
+			String testCaseRunMode = excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, Constant.RUNMODE);
+			int testCaseRowNum = excelUtil.getTestCaseRowNumber(testCaseName, Constant.TESTCASE_ID, Constant.SHEET_TESTSTEPS);
+			System.out.println("TestCase Name : "+testCaseName+" TestCaseRowNum : "+testCaseRowNum);
 		}
 	}
 }
