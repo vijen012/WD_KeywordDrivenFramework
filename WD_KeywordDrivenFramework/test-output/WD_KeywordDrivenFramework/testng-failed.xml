@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" name="Failed suite [WD_KeywordDrivenFramework]" parallel="tests">
+  <parameter name="browserName" value="Firefox"/>
+  <test name="FirefoxTest(failed)" parallel="tests">
+    <parameter name="browserName" value="Firefox"/>
+    <classes>
+      <class name="com.driverClass.Driver">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="test"/>
+          <include name="beforeTest"/>
+          <include name="beforeSuite"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- com.driverClass.Driver -->
+    </classes>
+  </test> <!-- FirefoxTest(failed) -->
+</suite> <!-- Failed suite [WD_KeywordDrivenFramework] -->
