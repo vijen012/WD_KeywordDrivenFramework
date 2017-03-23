@@ -95,11 +95,12 @@ public class ExcelUtil implements IExcelUtil
 	}
 	
 	@Override
-	public String getCellData(XSSFSheet excelSheet, int rowNum, int columNum)
+	public String getCellData(String excelSheetName, int rowNum, int columNum)
 	{
 		String cellData="";
 		boolean isCellEmptyORNull = false;
-		Cell = excelSheet.getRow(rowNum).getCell(columNum);
+		ExcelSheet = getExcelSheet(excelSheetName);
+		Cell = ExcelSheet.getRow(rowNum).getCell(columNum);
 		isCellEmptyORNull = isCellEmpty(Cell);
 		if(!isCellEmptyORNull)
 		{
@@ -129,10 +130,11 @@ public class ExcelUtil implements IExcelUtil
 	}
 
 	@Override
-	public int getRowCount(XSSFSheet excelSheet) 
+	public int getRowCount(String excelSheetName) 
 	{
 		//int rowCount = excelSheet.getLastRowNum() - ExcelSheet.getFirstRowNum();
-		int rowCount = excelSheet.getPhysicalNumberOfRows();		
+		ExcelSheet = getExcelSheet(excelSheetName);
+		int rowCount = ExcelSheet.getPhysicalNumberOfRows();		
 		return rowCount;
 	}
 
@@ -145,11 +147,28 @@ public class ExcelUtil implements IExcelUtil
 	}
 
 	@Override
-	public int getColumnCount(XSSFSheet excelSheet) 
+	public int getColumnCount(String excelSheetName) 
 	{
 		//int columnCount = excelSheet.getRow(0).getLastCellNum();
-		int columnCount = excelSheet.getRow(0).getPhysicalNumberOfCells();
+		ExcelSheet = getExcelSheet(excelSheetName);
+		int columnCount = ExcelSheet.getRow(0).getPhysicalNumberOfCells();
 		return columnCount;
+	}
+	
+	@Override
+	public int getTestCaseRowNumber(String testCaseName, int colNumber, String excelSheetName)
+	{
+		int testCaseRowNum = 0;
+		int rowCount = getRowCount(excelSheetName);
+		for(int iRow = 1; iRow < rowCount; iRow++)
+		{
+			if(getCellData(excelSheetName, iRow, colNumber).equalsIgnoreCase(testCaseName))
+			{
+				testCaseRowNum = iRow;
+				break;
+			}
+		}
+		return testCaseRowNum;
 	}
 		
 }
