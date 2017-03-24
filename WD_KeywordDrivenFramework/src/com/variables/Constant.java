@@ -9,7 +9,7 @@ public class Constant
 	public final static int TESTCASE_RESULT = 3;
 	
 	//Declaring Test Step Sheet Column Constants
-	public final static int TS_ID = 1;
+	public final static int TESTSTEP_ID = 1;
 	public final static int TESTSTEP_DESCRIPTION = 2;
 	public final static int ACTION_KEYWORD = 3;
 	public final static int PAGE_NAME = 4;

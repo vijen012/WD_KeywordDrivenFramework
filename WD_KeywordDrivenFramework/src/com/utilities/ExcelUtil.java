@@ -177,18 +177,18 @@ public class ExcelUtil implements IExcelUtil
 	//This method is to get the count of the test steps of test case
 	//This method takes three arguments (Sheet name, Test Case Id & Test case row number)	
 	@Override
-	public int getTestStepsCount(String testCaseName, int testCaseStartRowNum, String excelSheetName)
+	public int getTestStepsCount(String testCaseName, int iTestCaseStartRowNum, String excelSheetName)
 	{
-		int testCaseLastRowNum = 0;
-		for( ; testCaseStartRowNum < getRowCount(excelSheetName); testCaseStartRowNum++)
+		int iTestCaseLastRowNum = 0;
+		for( ; iTestCaseStartRowNum < getRowCount(excelSheetName); iTestCaseStartRowNum++)
 		{
-			if(!testCaseName.equalsIgnoreCase(getCellData(excelSheetName, testCaseStartRowNum, Constant.TESTCASE_ID)))
+			if(!testCaseName.equalsIgnoreCase(getCellData(excelSheetName, iTestCaseStartRowNum, Constant.TESTCASE_ID)))
 			{
-				testCaseLastRowNum = testCaseStartRowNum - 1;
+				iTestCaseLastRowNum = iTestCaseStartRowNum - 1;
 				break;
 			}
 		}
-		return testCaseLastRowNum;
+		return iTestCaseLastRowNum;
 	}
 		
 }
