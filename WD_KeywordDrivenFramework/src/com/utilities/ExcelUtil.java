@@ -11,6 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.interfaces.IExcelUtil;
+import com.variables.Constant;
 import com.variables.GlobalVariables;
 
 public class ExcelUtil implements IExcelUtil
@@ -155,12 +156,13 @@ public class ExcelUtil implements IExcelUtil
 		return columnCount;
 	}
 	
+	//This method is to get the Row number of the test case
+	//This methods takes three arguments(Test Case name , Column Number & Sheet name)
 	@Override
 	public int getTestCaseRowNumber(String testCaseName, int colNumber, String excelSheetName)
 	{
 		int testCaseRowNum = 0;
-		int rowCount = getRowCount(excelSheetName);
-		for(int iRow = 1; iRow < rowCount; iRow++)
+		for(int iRow = 1; iRow < getRowCount(excelSheetName); iRow++)
 		{
 			if(getCellData(excelSheetName, iRow, colNumber).equalsIgnoreCase(testCaseName))
 			{
@@ -169,6 +171,24 @@ public class ExcelUtil implements IExcelUtil
 			}
 		}
 		return testCaseRowNum;
+	}
+	
+	
+	//This method is to get the count of the test steps of test case
+	//This method takes three arguments (Sheet name, Test Case Id & Test case row number)	
+	@Override
+	public int getTestStepsCount(String testCaseName, int testCaseStartRowNum, String excelSheetName)
+	{
+		int testCaseLastRowNum = 0;
+		for( ; testCaseStartRowNum < getRowCount(excelSheetName); testCaseStartRowNum++)
+		{
+			if(!testCaseName.equalsIgnoreCase(getCellData(excelSheetName, testCaseStartRowNum, Constant.TESTCASE_ID)))
+			{
+				testCaseLastRowNum = testCaseStartRowNum - 1;
+				break;
+			}
+		}
+		return testCaseLastRowNum;
 	}
 		
 }

@@ -16,5 +16,6 @@ public interface IExcelUtil
 	public int getColumnCount();
 	public int getColumnCount(String excelSheetName);
 	public int getTestCaseRowNumber(String testCaseName, int colNumber, String excelSheetName);
+	public int getTestStepsCount(String testCaseName, int testCaseStartRowNum, String excelSheetName);
 	public void closeExcel();
 }

@@ -63,8 +63,9 @@ public class Driver
 		{
 			String testCaseName = excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, Constant.TESTCASE_ID);
 			String testCaseRunMode = excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, Constant.RUNMODE);
-			int testCaseRowNum = excelUtil.getTestCaseRowNumber(testCaseName, Constant.TESTCASE_ID, Constant.SHEET_TESTSTEPS);
-			System.out.println("TestCase Name : "+testCaseName+" TestCaseRowNum : "+testCaseRowNum);
+			int testCaseStartRowNum = excelUtil.getTestCaseRowNumber(testCaseName, Constant.TESTCASE_ID, Constant.SHEET_TESTSTEPS);
+			int testCaseLastRowNum = excelUtil.getTestStepsCount(testCaseName, testCaseStartRowNum, Constant.SHEET_TESTSTEPS);
+			System.out.println("TestCase Name : "+testCaseName+" TestCaseStartRowNum : "+testCaseStartRowNum+" TestCaseLastRowNum : "+testCaseLastRowNum);
 		}
 	}
 }
