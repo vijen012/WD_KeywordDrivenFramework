@@ -1,6 +1,8 @@
 package com.driverClass;
 
-import org.apache.poi.xssf.usermodel.XSSFSheet;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -9,15 +11,17 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.actionKeywords.ActionKeywords;
 import com.factory.DriverFactory;
 import com.utilities.ExcelUtil;
 import com.variables.Constant;
 
 public class Driver 
 {	
-	DriverFactory factory;
-	ExcelUtil excelUtil;
-	WebDriver driver = null;
+	private DriverFactory factory;
+	private ExcelUtil excelUtil;
+	private WebDriver driver = null;
+	private ActionKeywords actionKeywords;
 	
 	@BeforeSuite
 	public void beforeSuite()
@@ -39,7 +43,9 @@ public class Driver
 	public void beforeTest(String browserName)
 	{
 		factory = new DriverFactory();
-		//driver = factory.getBrowserDriver(browserName);	
+		//driver = factory.getBrowserDriver(browserName);
+		//actionKeywords = new ActionKeywords(driver);
+		actionKeywords = new ActionKeywords();
 	}
 	
 	@AfterTest
@@ -81,10 +87,27 @@ public class Driver
 				{
 					String testStepId = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.TESTSTEP_ID);
 					String actionKeyword = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.ACTION_KEYWORD);
+					String element = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.PAGE_OBJECT);
+					String dataSet = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.DATA_SET);
 					//System.out.println("TestCase Name : "+testCaseName+" TestStep Id : "+testStepId+" ActionKeyword : "+actionKeyword);
+					executeAction(actionKeyword, element, dataSet);
 				}
 			}
 		}		
 	}//End executeTestCases()
 	
+	
+	private void executeAction(String actionkeyword, String element, String dataSet)
+	{
+			try 
+			{
+				Method method = actionKeywords.getClass().getMethod(actionkeyword, String.class, String.class);
+				method.invoke(actionKeywords, element, dataSet);
+			} 
+			catch (NoSuchMethodException | SecurityException |InvocationTargetException | IllegalAccessException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
 }

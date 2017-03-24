@@ -7,11 +7,9 @@
     <classes>
       <class name="com.driverClass.Driver">
         <methods>
-          <include name="afterSuite"/>
           <include name="test"/>
           <include name="beforeTest"/>
           <include name="beforeSuite"/>
-          <include name="afterTest"/>
         </methods>
       </class> <!-- com.driverClass.Driver -->
     </classes>
