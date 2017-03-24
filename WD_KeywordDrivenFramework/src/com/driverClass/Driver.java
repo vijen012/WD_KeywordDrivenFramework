@@ -43,9 +43,9 @@ public class Driver
 	public void beforeTest(String browserName)
 	{
 		factory = new DriverFactory();
-		//driver = factory.getBrowserDriver(browserName);
-		//actionKeywords = new ActionKeywords(driver);
-		actionKeywords = new ActionKeywords();
+		driver = factory.getBrowserDriver(browserName);
+		actionKeywords = new ActionKeywords(driver);
+		//actionKeywords = new ActionKeywords();
 	}
 	
 	@AfterTest
