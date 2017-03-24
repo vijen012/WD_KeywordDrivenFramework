@@ -21,6 +21,7 @@ public class ExcelUtil implements IExcelUtil
 	private static XSSFRow Row;
 	private static XSSFCell Cell;
 
+	//This method is to set the File path and to open the Excel file
 	@Override
 	public void setExcelFile(String fileName) 
 	{
@@ -38,6 +39,7 @@ public class ExcelUtil implements IExcelUtil
 		}
 	}
 	
+	// Close Excel file
 	@Override
 	public void closeExcel()
 	{
@@ -54,6 +56,7 @@ public class ExcelUtil implements IExcelUtil
 		}
 	}
 
+	// Set Excel Sheet based on sheet name
 	@Override
 	public void setExcelSheet(String sheetName) 
 	{
@@ -67,6 +70,8 @@ public class ExcelUtil implements IExcelUtil
 		}
 	}
 
+	
+	// Return ExcelSheet object
 	@Override
 	public XSSFSheet getExcelSheet(String sheetName) 
 	{
@@ -81,78 +86,149 @@ public class ExcelUtil implements IExcelUtil
 		return ExcelSheet;
 	}
 
+	
+	// Get Cell data based on row number and column number
 	@Override
 	public String getCellData(int rowNum, int columNum) 
 	{
 		String cellData="";
 		boolean isCellEmptyORNull = false;
-		Cell = ExcelSheet.getRow(rowNum).getCell(columNum);
-		isCellEmptyORNull = isCellEmpty(Cell);
-		if(!isCellEmptyORNull)
+		try
 		{
-			cellData = Cell.getStringCellValue().trim();
+			Cell = ExcelSheet.getRow(rowNum).getCell(columNum);
+			isCellEmptyORNull = isCellEmpty(Cell);
+			if(!isCellEmptyORNull)
+			{
+				cellData = Cell.getStringCellValue().trim();
+			}			
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
 		}
 		return cellData;
 	}
 	
+	
+	// Get cell data based on sheetname , row number and column number
 	@Override
 	public String getCellData(String excelSheetName, int rowNum, int columNum)
 	{
 		String cellData="";
 		boolean isCellEmptyORNull = false;
-		ExcelSheet = getExcelSheet(excelSheetName);
-		Cell = ExcelSheet.getRow(rowNum).getCell(columNum);
-		isCellEmptyORNull = isCellEmpty(Cell);
-		if(!isCellEmptyORNull)
+		try
 		{
-			cellData = Cell.getStringCellValue().trim();
+			ExcelSheet = getExcelSheet(excelSheetName);
+			Cell = ExcelSheet.getRow(rowNum).getCell(columNum);
+			isCellEmptyORNull = isCellEmpty(Cell);
+			if(!isCellEmptyORNull)
+			{
+				cellData = Cell.getStringCellValue().trim();
+			}			
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
 		}
 		return cellData;
 	}
 	
+	
+	// Checking whether the cell is empty or not
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isCellEmpty(XSSFCell cell)
 	{
 		boolean isCellNull = false;
-		if(cell == null || cell.getCellTypeEnum() == CellType.BLANK)
+		try
 		{
-			isCellNull = true;
+			if(cell == null || cell.getCellTypeEnum() == CellType.BLANK)
+			{
+				isCellNull = true;
+			}			
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
 		}
 		return isCellNull;		
 	}
 
+	
+	//Returning number of row from the specified excel sheet
 	@Override
 	public int getRowCount() 
 	{
-		//int rowCount = ExcelSheet.getLastRowNum() - ExcelSheet.getFirstRowNum();
-		int rowCount = ExcelSheet.getPhysicalNumberOfRows();
+		int rowCount = 0;
+		try
+		{
+			//rowCount = ExcelSheet.getLastRowNum() - ExcelSheet.getFirstRowNum();
+			  rowCount = ExcelSheet.getPhysicalNumberOfRows();			
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
+		}
 		return rowCount;
 	}
 
+	//Returning number of row from the specified excel sheet	
 	@Override
 	public int getRowCount(String excelSheetName) 
 	{
-		//int rowCount = excelSheet.getLastRowNum() - ExcelSheet.getFirstRowNum();
-		ExcelSheet = getExcelSheet(excelSheetName);
-		int rowCount = ExcelSheet.getPhysicalNumberOfRows();		
+		int rowCount = 0;
+		try
+		{
+			//rowCount = excelSheet.getLastRowNum() - ExcelSheet.getFirstRowNum();
+			ExcelSheet = getExcelSheet(excelSheetName);
+			rowCount = ExcelSheet.getPhysicalNumberOfRows();					
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
+		}
 		return rowCount;
 	}
 
+	//Returning number of column from the specified excel sheet
 	@Override
 	public int getColumnCount() 
 	{
-		//int columnCount = ExcelSheet.getRow(0).getLastCellNum();
-		int columnCount = ExcelSheet.getRow(0).getPhysicalNumberOfCells();
+		int columnCount = 0;
+		try
+		{
+			//columnCount = ExcelSheet.getRow(0).getLastCellNum();
+			columnCount = ExcelSheet.getRow(0).getPhysicalNumberOfCells();			
+		}
+		catch (Exception ex)
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
+		}
 		return columnCount;
 	}
 
+	//Returning number of column from the specified excel sheet	
 	@Override
 	public int getColumnCount(String excelSheetName) 
 	{
-		//int columnCount = excelSheet.getRow(0).getLastCellNum();
-		ExcelSheet = getExcelSheet(excelSheetName);
-		int columnCount = ExcelSheet.getRow(0).getPhysicalNumberOfCells();
+		int columnCount = 0;
+		try
+		{
+			//columnCount = excelSheet.getRow(0).getLastCellNum();
+			ExcelSheet = getExcelSheet(excelSheetName);
+			columnCount = ExcelSheet.getRow(0).getPhysicalNumberOfCells();			
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
+		}
 		return columnCount;
 	}
 	
@@ -162,13 +238,21 @@ public class ExcelUtil implements IExcelUtil
 	public int getTestCaseRowNumber(String testCaseName, int colNumber, String excelSheetName)
 	{
 		int testCaseRowNum = 0;
-		for(int iRow = 1; iRow < getRowCount(excelSheetName); iRow++)
+		try
 		{
-			if(getCellData(excelSheetName, iRow, colNumber).equalsIgnoreCase(testCaseName))
+			for(int iRow = 1; iRow < getRowCount(excelSheetName); iRow++)
 			{
-				testCaseRowNum = iRow;
-				break;
-			}
+				if(getCellData(excelSheetName, iRow, colNumber).equalsIgnoreCase(testCaseName))
+				{
+					testCaseRowNum = iRow;
+					break;
+				}
+			}			
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
 		}
 		return testCaseRowNum;
 	}
@@ -180,13 +264,21 @@ public class ExcelUtil implements IExcelUtil
 	public int getTestStepsCount(String testCaseName, int iTestCaseStartRowNum, String excelSheetName)
 	{
 		int iTestCaseLastRowNum = 0;
-		for( ; iTestCaseStartRowNum < getRowCount(excelSheetName); iTestCaseStartRowNum++)
+		try
 		{
-			if(!testCaseName.equalsIgnoreCase(getCellData(excelSheetName, iTestCaseStartRowNum, Constant.TESTCASE_ID)))
+			for( ; iTestCaseStartRowNum < getRowCount(excelSheetName); iTestCaseStartRowNum++)
 			{
-				iTestCaseLastRowNum = iTestCaseStartRowNum - 1;
-				break;
-			}
+				if(!testCaseName.equalsIgnoreCase(getCellData(excelSheetName, iTestCaseStartRowNum, Constant.TESTCASE_ID)))
+				{
+					iTestCaseLastRowNum = iTestCaseStartRowNum - 1;
+					break;
+				}
+			}			
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
 		}
 		return iTestCaseLastRowNum;
 	}
