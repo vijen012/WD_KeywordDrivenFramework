@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="Log4J_2" package="com">
+<!-- 	
+	<Properties>
+		<Property name="basePath">C:\\logs</Property>
+	</Properties>
+ -->
+ <sysproperty key="log4j.configurationFile" value="file:///src/log4j2.xml" />
+	<Appenders>
+		<RollingFile name="fileLogger" fileName="logs/app-info.log" filePattern="logs/app-info-%d{yyyy-MM-dd}.log" ignoreExceptions="false">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>		
+			
+	       <DefaultRolloverStrategy>
+		       <Delete basePath="logs" maxDepth="1">	       	
+		          <IfFileName glob="*/app-info.log" />
+		          <IfLastModified age="1m" />	          
+		       </Delete>
+	       </DefaultRolloverStrategy>			
+					
+		</RollingFile>
+
+		<Console name="console" target="SYSTEM_OUT" ignoreExceptions="false">
+			<PatternLayout	pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<!--  
+		<Logger name="com.logging.LoggerUtility" level="debug" additivity="false">
+			<appender-ref ref="fileLogger" level="debug" />
+		</Logger>
+		-->
+		<Root level="debug" additivity="false">
+			<appender-ref ref="console" level="debug"/>
+			<appender-ref ref="fileLogger" level="debug" />
+		</Root>
+	</Loggers>
+</Configuration>

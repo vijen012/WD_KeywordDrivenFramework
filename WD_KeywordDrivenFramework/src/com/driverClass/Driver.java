@@ -3,6 +3,7 @@ package com.driverClass;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -13,6 +14,7 @@ import org.testng.annotations.Test;
 
 import com.actionKeywords.ActionKeywords;
 import com.factory.DriverFactory;
+import com.logging.LoggerUtility;
 import com.utilities.ExcelUtil;
 import com.variables.Constant;
 
@@ -22,6 +24,7 @@ public class Driver
 	private ExcelUtil excelUtil;
 	private WebDriver driver = null;
 	private ActionKeywords actionKeywords;
+	private Logger logger =  LoggerUtility.getLogger();
 	
 	@BeforeSuite
 	public void beforeSuite()
@@ -82,7 +85,7 @@ public class Driver
 				int iTestCaseStartRowNum = excelUtil.getTestCaseRowNumber(testCaseName, Constant.TESTCASE_ID, Constant.SHEET_TESTSTEPS);
 				int iTestCaseLastRowNum = excelUtil.getTestStepsCount(testCaseName, iTestCaseStartRowNum, Constant.SHEET_TESTSTEPS);
 				//System.out.println("TestCase Name : "+testCaseName+" TestCaseStartRowNum : "+iTestCaseStartRowNum+" TestCaseLastRowNum : "+iTestCaseLastRowNum);
-				
+				logger.info(testCaseName + " execution started");
 				for( ; iTestCaseStartRowNum <= iTestCaseLastRowNum; iTestCaseStartRowNum++)
 				{
 					String testStepId = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.TESTSTEP_ID);
@@ -92,6 +95,7 @@ public class Driver
 					//System.out.println("TestCase Name : "+testCaseName+" TestStep Id : "+testStepId+" ActionKeyword : "+actionKeyword);
 					executeAction(actionKeyword, element, dataSet);
 				}
+				logger.info(testCaseName + " execution completed");
 			}
 		}		
 	}//End executeTestCases()
