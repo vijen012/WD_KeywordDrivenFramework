@@ -9,9 +9,9 @@ import com.variables.GlobalVariables;
 
 public class ReadObjects 
 {
-	private Properties properties = new Properties();
+	private static Properties properties = new Properties();
 	
-	public Properties getObjectRepository()
+	public static Properties getObjectRepository()
 	{
 		try
 		{

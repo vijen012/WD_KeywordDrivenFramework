@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 import com.actionKeywords.ActionKeywords;
 import com.factory.DriverFactory;
 import com.logging.LoggerUtility;
+import com.objectRepo.ReadObjects;
 import com.utilities.ExcelUtil;
 import com.variables.Constant;
 
@@ -53,14 +54,15 @@ public class Driver
 		driver = factory.getBrowserDriver(browserName);
 		actionKeywords = new ActionKeywords(driver);
 		OR = new Properties(System.getProperties());
+		OR = ReadObjects.getObjectRepository();
 		//actionKeywords = new ActionKeywords();
 	}
 	
 	@AfterTest
 	public void afterTest()
 	{
-		//driver.close();
-		//driver.quit();
+		driver.close();
+		driver.quit();
 	}	
 	
 	@Test
