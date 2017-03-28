@@ -2,9 +2,12 @@ package com.driverClass;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Properties;
 
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -20,6 +23,7 @@ import com.variables.Constant;
 
 public class Driver 
 {	
+	public static Properties OR;
 	private DriverFactory factory;
 	private ExcelUtil excelUtil;
 	private WebDriver driver = null;
@@ -48,6 +52,7 @@ public class Driver
 		factory = new DriverFactory();
 		driver = factory.getBrowserDriver(browserName);
 		actionKeywords = new ActionKeywords(driver);
+		OR = new Properties(System.getProperties());
 		//actionKeywords = new ActionKeywords();
 	}
 	
@@ -105,8 +110,13 @@ public class Driver
 	{
 			try 
 			{
-				Method method = actionKeywords.getClass().getMethod(actionkeyword, String.class, String.class);
-				method.invoke(actionKeywords, element, dataSet);
+				WebElement webElement = null;
+				Method method = actionKeywords.getClass().getMethod(actionkeyword, WebElement.class, String.class);
+				if(!(element.isEmpty() || element.equals("")))
+				{
+					webElement = driver.findElement(By.xpath(OR.getProperty(element)));
+				}
+				method.invoke(actionKeywords, webElement, dataSet);
 			} 
 			catch (NoSuchMethodException | SecurityException |InvocationTargetException | IllegalAccessException e) 
 			{

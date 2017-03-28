@@ -1,6 +1,9 @@
 package com.actionKeywords;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ActionKeywords 
 {
@@ -17,22 +20,26 @@ public class ActionKeywords
 		this.driver = driver;
 	}
 	
-	public void launchBrowser(String element, String dataSet)
+	public void launchBrowser(WebElement webElement, String dataSet)
 	{
+		
 		System.out.println("launchBrowser");
+		driver.get(dataSet);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
-	public void verifyPage(String element, String dataSet)
+	public void verifyPage(WebElement webElement, String dataSet)
 	{
 		System.out.println("verifyPage");
 	}
 	
-	public void enterText(String element, String dataSet)
+	public void enterText(WebElement webElement, String dataSet)
 	{
 		System.out.println("enterText");
 	}
 	
-	public void click(String element, String dataSet)
+	public void click(WebElement webElement, String dataSet)
 	{
 		System.out.println("click");
 	}

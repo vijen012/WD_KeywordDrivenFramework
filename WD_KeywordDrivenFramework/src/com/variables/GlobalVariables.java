@@ -6,6 +6,7 @@ public class GlobalVariables
 	private static String ProjectDirPath;
 	private static String DriverServerDirPath;
 	private static String ExcelFilePath;
+	private static String ObjectRepoDirPath;
 	
 	public static String getProjectDirPath() 
 	{
@@ -35,5 +36,13 @@ public class GlobalVariables
 		GlobalVariables.ExcelFilePath = excelFilePath;
 	}	
 	
+	public static String getObjectRepoDirPath() 
+	{
+		if(ObjectRepoDirPath == null)
+		{
+			ObjectRepoDirPath = getProjectDirPath() + "\\src\\com\\objectRepo";
+		}
+		return ObjectRepoDirPath;
+	}	
 	
 }

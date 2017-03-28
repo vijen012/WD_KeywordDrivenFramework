@@ -1,7 +1,8 @@
-[DEBUG] 2017-03-26 22:09:11.382 [main] LoggerUtility - Debug Message Logged !!!
-[INFO ] 2017-03-26 22:09:11.384 [main] LoggerUtility - Info Message Logged !!!
-[ERROR] 2017-03-26 22:09:11.384 [main] LoggerUtility - Error Message Logged !!!
-[INFO ] 2017-03-26 22:41:27.467 [TestNG] LoggerUtility - Test01 execution started
-[INFO ] 2017-03-26 22:41:27.471 [TestNG] LoggerUtility - Test01 execution completed
-[INFO ] 2017-03-26 22:41:27.471 [TestNG] LoggerUtility - Test02 execution started
-[INFO ] 2017-03-26 22:41:27.473 [TestNG] LoggerUtility - Test02 execution completed
+[INFO ] 2017-03-27 19:21:44.494 [TestNG] LoggerUtility - Test01 execution started
+[INFO ] 2017-03-27 19:21:44.517 [TestNG] LoggerUtility - Test01 execution completed
+[INFO ] 2017-03-27 19:21:44.518 [TestNG] LoggerUtility - Test02 execution started
+[INFO ] 2017-03-27 19:21:44.524 [TestNG] LoggerUtility - Test02 execution completed
+[INFO ] 2017-03-27 19:23:24.710 [TestNG] LoggerUtility - Test01 execution started
+[INFO ] 2017-03-27 19:25:45.134 [TestNG] LoggerUtility - Test01 execution started
+[INFO ] 2017-03-27 19:28:49.594 [TestNG] LoggerUtility - Test01 execution started
+[INFO ] 2017-03-27 19:29:47.630 [TestNG] LoggerUtility - Test01 execution started
