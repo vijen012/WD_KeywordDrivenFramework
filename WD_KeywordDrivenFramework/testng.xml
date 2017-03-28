@@ -2,26 +2,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="WD_KeywordDrivenFramework" thread-count="3" parallel="tests">
-<!--
+
   <test name="FirefoxTest">
 	<parameter name="browserName" value="Firefox"/>
     <classes>
        <class name="com.driverClass.Driver" />
     </classes>
   </test>
-  
+<!--  
   <test name="InternetExplorerTest">
 	<parameter name="browserName" value="InternetExplorer"/>
     <classes>
        <class name="com.driverClass.Driver" />
     </classes>
   </test>
-  -->   
+     
   <test name="ChromeTest">
 	<parameter name="browserName" value="Chrome"/>
     <classes>
        <class name="com.driverClass.Driver" />
     </classes>
   </test>    
-  
+  -->
 </suite>  	
