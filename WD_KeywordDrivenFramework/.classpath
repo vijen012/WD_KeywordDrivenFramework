@@ -39,5 +39,7 @@
 	<classpathentry kind="lib" path="lib/webdriver/jna-platform-4.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/webdriver/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="lib/webdriver/testng-6.9.9.jar"/>
+	<classpathentry kind="lib" path="lib/webdriver/selenium-java-2.53.1-srcs.jar"/>
+	<classpathentry kind="lib" path="lib/webdriver/selenium-java-2.53.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
