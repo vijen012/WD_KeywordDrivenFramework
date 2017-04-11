@@ -1,73 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="WD_KeywordDrivenFramework" duration-ms="75950" started-at="2017-03-27T13:58:47Z" finished-at="2017-03-27T14:00:03Z">
+  <suite name="WD_KeywordDrivenFramework" duration-ms="11218" started-at="2017-03-28T07:25:56Z" finished-at="2017-03-28T07:26:07Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="75950" started-at="2017-03-27T13:58:47Z" finished-at="2017-03-27T14:00:03Z">
+    <test name="FirefoxTest" duration-ms="11218" started-at="2017-03-28T07:25:56Z" finished-at="2017-03-28T07:26:07Z">
       <class name="com.driverClass.Driver">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.driverClass.Driver@7ec3394b]" name="beforeSuite" is-config="true" duration-ms="10" started-at="2017-03-27T19:28:47Z" finished-at="2017-03-27T19:28:47Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.driverClass.Driver@222545dc]" name="beforeSuite" is-config="true" duration-ms="7" started-at="2017-03-28T12:55:56Z" finished-at="2017-03-28T12:55:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:com.driverClass.Driver@7ec3394b]" name="beforeTest" is-config="true" duration-ms="1768" started-at="2017-03-27T19:28:47Z" finished-at="2017-03-27T19:28:49Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:com.driverClass.Driver@222545dc]" name="beforeTest" is-config="true" duration-ms="7973" started-at="2017-03-28T12:55:56Z" finished-at="2017-03-28T12:56:04Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Chrome]]>
+                <![CDATA[Firefox]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="FAIL" signature="test()[pri:0, instance:com.driverClass.Driver@7ec3394b]" name="test" duration-ms="74156" started-at="2017-03-27T19:28:49Z" finished-at="2017-03-27T19:30:03Z">
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Cannot find elements when the XPath expression is null.]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Cannot find elements when the XPath expression is null.
-	at org.openqa.selenium.By.xpath(By.java:112)
-	at com.driverClass.Driver.executeAction(Driver.java:117)
-	at com.driverClass.Driver.executeTestCases(Driver.java:101)
-	at com.driverClass.Driver.test(Driver.java:72)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.access$000(SuiteRunner.java:37)
-	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:368)
-	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.driverClass.Driver@222545dc]" name="test" duration-ms="2346" started-at="2017-03-28T12:56:04Z" finished-at="2017-03-28T12:56:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.driverClass.Driver@7ec3394b]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-03-27T19:30:03Z" finished-at="2017-03-27T19:30:03Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.driverClass.Driver@222545dc]" name="afterTest" is-config="true" duration-ms="889" started-at="2017-03-28T12:56:06Z" finished-at="2017-03-28T12:56:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.driverClass.Driver@7ec3394b]" name="afterSuite" is-config="true" duration-ms="0" started-at="2017-03-27T19:30:03Z" finished-at="2017-03-27T19:30:03Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.driverClass.Driver@222545dc]" name="afterSuite" is-config="true" duration-ms="0" started-at="2017-03-28T12:56:07Z" finished-at="2017-03-28T12:56:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
       </class> <!-- com.driverClass.Driver -->
-    </test> <!-- ChromeTest -->
+    </test> <!-- FirefoxTest -->
   </suite> <!-- WD_KeywordDrivenFramework -->
 </testng-results>

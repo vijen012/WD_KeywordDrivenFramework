@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" name="Failed suite [WD_KeywordDrivenFramework]" parallel="tests">
-  <parameter name="browserName" value="Chrome"/>
-  <test name="ChromeTest(failed)" parallel="tests">
-    <parameter name="browserName" value="Chrome"/>
+<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [WD_KeywordDrivenFramework]" parallel="tests">
+  <test name="FirefoxTest(failed)" parallel="tests">
+    <parameter name="browserName" value="Firefox"/>
     <classes>
       <class name="com.driverClass.Driver">
         <methods>
@@ -15,5 +14,5 @@
         </methods>
       </class> <!-- com.driverClass.Driver -->
     </classes>
-  </test> <!-- ChromeTest(failed) -->
+  </test> <!-- FirefoxTest(failed) -->
 </suite> <!-- Failed suite [WD_KeywordDrivenFramework] -->
