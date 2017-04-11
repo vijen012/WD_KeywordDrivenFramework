@@ -56,6 +56,7 @@ public class Driver
 		OR = new Properties(System.getProperties());
 		OR = ReadObjects.getObjectRepository();
 		//actionKeywords = new ActionKeywords();
+		logger.info("***********************BeforeTest****************************");
 	}
 	
 	@AfterTest
@@ -63,6 +64,7 @@ public class Driver
 	{
 		driver.close();
 		driver.quit();
+		logger.info("***********************AfterTest****************************");
 	}	
 	
 	@Test
@@ -123,6 +125,7 @@ public class Driver
 			catch (NoSuchMethodException | SecurityException |InvocationTargetException | IllegalAccessException e) 
 			{
 				// TODO Auto-generated catch block
+				logger.error("Error In ExecuteAction Method");
 				e.printStackTrace();
 			}
 	}
