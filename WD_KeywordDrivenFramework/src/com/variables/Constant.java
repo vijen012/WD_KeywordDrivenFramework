@@ -20,4 +20,9 @@ public class Constant
 	//Excel Sheets Constants
 	public final static String SHEET_TESTCASES = "TestCases";
 	public final static String SHEET_TESTSTEPS = "TestSteps";
+	
+	//Result Reporting constants
+	public final static String PASS = "PASSED";
+	public final static String FAIL = "FAILED";
+	
 }

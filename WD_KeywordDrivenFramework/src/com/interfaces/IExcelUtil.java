@@ -18,4 +18,5 @@ public interface IExcelUtil
 	public int getTestCaseRowNumber(String testCaseName, int colNumber, String excelSheetName);
 	public int getTestStepsCount(String testCaseName, int iTestCaseStartRowNum, String excelSheetName);
 	public void closeExcel();
+	public void setCellData(String excelSheetName, String result, int rowNumber, int colNumber);
 }

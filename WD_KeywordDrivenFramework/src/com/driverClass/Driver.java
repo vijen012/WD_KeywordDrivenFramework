@@ -25,6 +25,7 @@ import com.variables.Constant;
 public class Driver 
 {	
 	public static Properties OR;
+	public static boolean bResult;
 	private DriverFactory factory;
 	private ExcelUtil excelUtil;
 	private WebDriver driver = null;
@@ -85,25 +86,59 @@ public class Driver
 
 		//System.out.println("SheetName : "+excelSheet.getSheetName() + " || " + "Row Count : " +rowCount+ " || " + "Column Count : "+columnCount);
 		
-		for(int iRow = 1; iRow < iTotalTestCases; iRow++)
+		for(int iTestCase = 1; iTestCase < iTotalTestCases; iTestCase++)
 		{
-			String testCaseName = excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, Constant.TESTCASE_ID);
-			String testCaseRunMode = excelUtil.getCellData(Constant.SHEET_TESTCASES, iRow, Constant.RUNMODE);
+			//Setting the value of bResult variable to 'true' before starting every test case
+			bResult = true;
+			String testCaseName = excelUtil.getCellData(Constant.SHEET_TESTCASES, iTestCase, Constant.TESTCASE_ID);
+			String testCaseRunMode = excelUtil.getCellData(Constant.SHEET_TESTCASES, iTestCase, Constant.RUNMODE);
 			if(testCaseRunMode.equalsIgnoreCase("yes"))
 			{
-				int iTestCaseStartRowNum = excelUtil.getTestCaseRowNumber(testCaseName, Constant.TESTCASE_ID, Constant.SHEET_TESTSTEPS);
-				int iTestCaseLastRowNum = excelUtil.getTestStepsCount(testCaseName, iTestCaseStartRowNum, Constant.SHEET_TESTSTEPS);
+				int iTestCaseStepStartRowNum = excelUtil.getTestCaseRowNumber(testCaseName, Constant.TESTCASE_ID, Constant.SHEET_TESTSTEPS);
+				int iTestCaseStepLastRowNum = excelUtil.getTestStepsCount(testCaseName, iTestCaseStepStartRowNum, Constant.SHEET_TESTSTEPS);
 				//System.out.println("TestCase Name : "+testCaseName+" TestCaseStartRowNum : "+iTestCaseStartRowNum+" TestCaseLastRowNum : "+iTestCaseLastRowNum);
 				logger.info(testCaseName + " execution started");
-				for( ; iTestCaseStartRowNum <= iTestCaseLastRowNum; iTestCaseStartRowNum++)
+				//Setting the value of bResult variable to 'true' before starting every test step
+				bResult=true;
+				for( ; iTestCaseStepStartRowNum <= iTestCaseStepLastRowNum; iTestCaseStepStartRowNum++)
 				{
-					String testStepId = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.TESTSTEP_ID);
-					String actionKeyword = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.ACTION_KEYWORD);
-					String element = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.PAGE_OBJECT);
-					String dataSet = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStartRowNum, Constant.DATA_SET);
+					String testStepId = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.TESTSTEP_ID);
+					String actionKeyword = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.ACTION_KEYWORD);
+					String element = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.PAGE_OBJECT);
+					String dataSet = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.DATA_SET);
 					//System.out.println("TestCase Name : "+testCaseName+" TestStep Id : "+testStepId+" ActionKeyword : "+actionKeyword);
 					executeAction(actionKeyword, element, dataSet);
+					//This is the result code, this code will execute after each test step
+					//The execution flow will go in to this only if the value of bResult is 'false'
+					if(bResult==false)
+					{
+						
+						//If 'false' then store the test step result as Failed
+						excelUtil.setCellData(Constant.SHEET_TESTSTEPS, Constant.FAIL, iTestCaseStepStartRowNum, Constant.TESTSTEP_RESULT);						
+						
+						
+						//If 'false' then store the test case result as Failed
+						excelUtil.setCellData(Constant.SHEET_TESTCASES, Constant.FAIL, iTestCase, Constant.TESTCASE_RESULT);
+						//End the test case in the logs
+						logger.info("Failed - End test case "+ testCaseName);
+						//By this break statement, execution flow will not execute any more test step of the failed test case
+						break;
+					}
+					else if(bResult==true)
+					{
+						//If 'true' then store the test step result as Passed
+						excelUtil.setCellData(Constant.SHEET_TESTSTEPS, Constant.PASS, iTestCaseStepStartRowNum, Constant.TESTSTEP_RESULT);						
+					}
 				}
+				
+				//This will only execute after the last step of the test case, if value is not 'false' at any step	
+				if(bResult==true)
+				{
+					//If 'true' then store the test case result as Passed
+					excelUtil.setCellData(Constant.SHEET_TESTCASES, Constant.PASS, iTestCase, Constant.TESTCASE_RESULT);
+					//End the test case in the logs
+					logger.info("Passed - End test case "+ testCaseName);								
+				}									
 				logger.info(testCaseName + " execution completed");
 			}
 		}		

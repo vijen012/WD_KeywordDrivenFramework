@@ -2,6 +2,7 @@ package com.utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.CellType;
@@ -281,6 +282,38 @@ public class ExcelUtil implements IExcelUtil
 			ex.printStackTrace();
 		}
 		return iTestCaseLastRowNum;
+	}
+
+	@Override
+	public void setCellData(String excelSheetName, String result, int rowNumber, int colNumber) 
+	{
+		// TODO Auto-generated method stub
+		try
+		{
+			ExcelSheet = getExcelSheet(excelSheetName);
+			Row = ExcelSheet.getRow(rowNumber);
+			Cell = Row.getCell(colNumber);
+			if (Cell == null) 
+			{
+				   Cell = Row.createCell(colNumber);
+				   Cell.setCellValue(result);
+			} 
+			else 
+			{
+					Cell.setCellValue(result);
+			}			
+			
+			FileOutputStream fileOutputStream = new FileOutputStream(GlobalVariables.getExcelFilePath());
+			ExcelWorkbook.write(fileOutputStream);
+			fileOutputStream.close();
+			
+			ExcelWorkbook = new XSSFWorkbook(new FileInputStream(GlobalVariables.getExcelFilePath()));
+		}
+		catch (Exception ex) 
+		{
+			// TODO: handle exception
+			ex.printStackTrace();
+		}
 	}
 		
 }
