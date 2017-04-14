@@ -101,6 +101,7 @@ public class Driver
 				logger.info(testCaseName + " execution started");
 				//Setting the value of bResult variable to 'true' before starting every test step
 				bResult=true;
+				//setting the true for every first step of test case
 				bTestCaseNextStep = true;
 				for( ; iTestCaseStepStartRowNum <= iTestCaseStepLastRowNum; iTestCaseStepStartRowNum++)
 				{
