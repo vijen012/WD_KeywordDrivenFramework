@@ -26,6 +26,7 @@ public class Driver
 {	
 	public static Properties OR;
 	public static boolean bResult;
+	public static boolean bTestCaseNextStep;
 	private DriverFactory factory;
 	private ExcelUtil excelUtil;
 	private WebDriver driver = null;
@@ -100,34 +101,45 @@ public class Driver
 				logger.info(testCaseName + " execution started");
 				//Setting the value of bResult variable to 'true' before starting every test step
 				bResult=true;
+				bTestCaseNextStep = true;
 				for( ; iTestCaseStepStartRowNum <= iTestCaseStepLastRowNum; iTestCaseStepStartRowNum++)
 				{
-					String testStepId = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.TESTSTEP_ID);
-					String actionKeyword = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.ACTION_KEYWORD);
-					String element = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.PAGE_OBJECT);
-					String dataSet = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.DATA_SET);
-					//System.out.println("TestCase Name : "+testCaseName+" TestStep Id : "+testStepId+" ActionKeyword : "+actionKeyword);
-					executeAction(actionKeyword, element, dataSet);
+					//This code execute for every first step of test case but if any step failed then for subsequent steps of test case this code won't execute
+					if(bTestCaseNextStep)
+					{
+						String testStepId = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.TESTSTEP_ID);
+						String actionKeyword = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.ACTION_KEYWORD);
+						String element = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.PAGE_OBJECT);
+						String dataSet = excelUtil.getCellData(Constant.SHEET_TESTSTEPS, iTestCaseStepStartRowNum, Constant.DATA_SET);
+						//System.out.println("TestCase Name : "+testCaseName+" TestStep Id : "+testStepId+" ActionKeyword : "+actionKeyword);
+						executeAction(actionKeyword, element, dataSet);						
+					}		
+					
 					//This is the result code, this code will execute after each test step
 					//The execution flow will go in to this only if the value of bResult is 'false'
-					if(bResult==false)
+					
+					if(bResult==true)
 					{
-						
+						//If 'true' then store the test step result as Passed
+						excelUtil.setCellData(Constant.SHEET_TESTSTEPS, Constant.PASS, iTestCaseStepStartRowNum, Constant.TESTSTEP_RESULT);						
+					}
+					else if(bResult==false && bTestCaseNextStep==true)
+					{
+						bTestCaseNextStep = false;
 						//If 'false' then store the test step result as Failed
 						excelUtil.setCellData(Constant.SHEET_TESTSTEPS, Constant.FAIL, iTestCaseStepStartRowNum, Constant.TESTSTEP_RESULT);						
-						
-						
+												
 						//If 'false' then store the test case result as Failed
 						excelUtil.setCellData(Constant.SHEET_TESTCASES, Constant.FAIL, iTestCase, Constant.TESTCASE_RESULT);
 						//End the test case in the logs
 						logger.info("Failed - End test case "+ testCaseName);
 						//By this break statement, execution flow will not execute any more test step of the failed test case
-						break;
+						//break;
 					}
-					else if(bResult==true)
+					else if(bResult==false && bTestCaseNextStep==false)
 					{
-						//If 'true' then store the test step result as Passed
-						excelUtil.setCellData(Constant.SHEET_TESTSTEPS, Constant.PASS, iTestCaseStepStartRowNum, Constant.TESTSTEP_RESULT);						
+						//If bResult==false && bTestCaseNextStep==false then store the test step result as Skipped
+						excelUtil.setCellData(Constant.SHEET_TESTSTEPS, Constant.SKIP, iTestCaseStepStartRowNum, Constant.TESTSTEP_RESULT);												
 					}
 				}
 				

@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.driverClass.Driver;
 import com.logging.LoggerUtility;
 
 public class ActionKeywords 
@@ -37,6 +38,7 @@ public class ActionKeywords
 		{
 			// TODO: handle exception
 			logger.error("Error- Unable to open browser");
+			Driver.bResult = false;
 		}
 		
 	}
@@ -46,13 +48,15 @@ public class ActionKeywords
 		try
 		{
 			logger.info("Verify Page");
-			System.out.println("verifyPage");				
+			System.out.println("verifyPage");
+			throw new NullPointerException();
 		}
 		catch (Exception ex) 
 		{
 			// TODO: handle exception
-			logger.error("Error - unable to verify page");
+			logger.error("Error - unable to verify page");			
 			ex.printStackTrace();
+			Driver.bResult = false;
 		}
 	}
 	
@@ -68,6 +72,7 @@ public class ActionKeywords
 			// TODO: handle exception
 			logger.error("Error - unable to enter text");
 			ex.printStackTrace();
+			Driver.bResult = false;
 		}
 	}
 	
@@ -83,6 +88,7 @@ public class ActionKeywords
 			// TODO: handle exception
 			logger.error("Error - unable to click on webelement");
 			ex.printStackTrace();
+			Driver.bResult = false;
 		}
 	}
 	

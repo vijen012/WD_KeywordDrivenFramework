@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="WD_KeywordDrivenFramework" duration-ms="10792" started-at="2017-04-11T04:01:30Z" finished-at="2017-04-11T04:01:41Z">
+  <suite name="WD_KeywordDrivenFramework" duration-ms="11257" started-at="2017-04-14T13:11:44Z" finished-at="2017-04-14T13:11:55Z">
     <groups>
     </groups>
-    <test name="FirefoxTest" duration-ms="10792" started-at="2017-04-11T04:01:30Z" finished-at="2017-04-11T04:01:41Z">
+    <test name="FirefoxTest" duration-ms="11257" started-at="2017-04-14T13:11:44Z" finished-at="2017-04-14T13:11:55Z">
       <class name="com.driverClass.Driver">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.driverClass.Driver@222545dc]" name="beforeSuite" is-config="true" duration-ms="7" started-at="2017-04-11T09:31:30Z" finished-at="2017-04-11T09:31:30Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.driverClass.Driver@6c64cb25]" name="beforeSuite" is-config="true" duration-ms="6" started-at="2017-04-14T18:41:44Z" finished-at="2017-04-14T18:41:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:com.driverClass.Driver@222545dc]" name="beforeTest" is-config="true" duration-ms="6384" started-at="2017-04-11T09:31:30Z" finished-at="2017-04-11T09:31:37Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:com.driverClass.Driver@6c64cb25]" name="beforeTest" is-config="true" duration-ms="6526" started-at="2017-04-14T18:41:44Z" finished-at="2017-04-14T18:41:50Z">
           <params>
             <param index="0">
               <value>
@@ -22,15 +22,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="test()[pri:0, instance:com.driverClass.Driver@222545dc]" name="test" duration-ms="3845" started-at="2017-04-11T09:31:37Z" finished-at="2017-04-11T09:31:41Z">
+        <test-method status="PASS" signature="test()[pri:0, instance:com.driverClass.Driver@6c64cb25]" name="test" duration-ms="3964" started-at="2017-04-14T18:41:50Z" finished-at="2017-04-14T18:41:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.driverClass.Driver@222545dc]" name="afterTest" is-config="true" duration-ms="551" started-at="2017-04-11T09:31:41Z" finished-at="2017-04-11T09:31:41Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.driverClass.Driver@6c64cb25]" name="afterTest" is-config="true" duration-ms="756" started-at="2017-04-14T18:41:54Z" finished-at="2017-04-14T18:41:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.driverClass.Driver@222545dc]" name="afterSuite" is-config="true" duration-ms="0" started-at="2017-04-11T09:31:41Z" finished-at="2017-04-11T09:31:41Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.driverClass.Driver@6c64cb25]" name="afterSuite" is-config="true" duration-ms="1" started-at="2017-04-14T18:41:55Z" finished-at="2017-04-14T18:41:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

@@ -24,5 +24,6 @@ public class Constant
 	//Result Reporting constants
 	public final static String PASS = "PASSED";
 	public final static String FAIL = "FAILED";
+	public final static String SKIP = "SKIPPED";
 	
 }
