@@ -1,0 +1,87 @@
+[INFO ] 2017-04-14 18:20:43.916 [TestNG-tests-1] LoggerUtility - ***********************BeforeTest****************************
+[INFO ] 2017-04-14 18:20:46.086 [TestNG-tests-1] LoggerUtility - Test01 execution started
+[INFO ] 2017-04-14 18:20:46.087 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 18:21:15.083 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 18:21:15.083 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 18:21:15.209 [TestNG-tests-1] LoggerUtility - Failed - End test case Test01
+[INFO ] 2017-04-14 18:21:15.209 [TestNG-tests-1] LoggerUtility - Test01 execution completed
+[INFO ] 2017-04-14 18:21:15.209 [TestNG-tests-1] LoggerUtility - Test02 execution started
+[INFO ] 2017-04-14 18:21:15.209 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 18:21:15.309 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 18:21:15.309 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 18:21:15.401 [TestNG-tests-1] LoggerUtility - Failed - End test case Test02
+[INFO ] 2017-04-14 18:21:15.401 [TestNG-tests-1] LoggerUtility - Test02 execution completed
+[INFO ] 2017-04-14 18:21:16.433 [TestNG-tests-1] LoggerUtility - ***********************AfterTest****************************
+[INFO ] 2017-04-14 18:41:50.787 [TestNG-tests-1] LoggerUtility - ***********************BeforeTest****************************
+[INFO ] 2017-04-14 18:41:51.289 [TestNG-tests-1] LoggerUtility - Test01 execution started
+[INFO ] 2017-04-14 18:41:51.291 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 18:41:54.063 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 18:41:54.064 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 18:41:54.192 [TestNG-tests-1] LoggerUtility - Failed - End test case Test01
+[INFO ] 2017-04-14 18:41:54.288 [TestNG-tests-1] LoggerUtility - Test01 execution completed
+[INFO ] 2017-04-14 18:41:54.288 [TestNG-tests-1] LoggerUtility - Test02 execution started
+[INFO ] 2017-04-14 18:41:54.289 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 18:41:54.406 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 18:41:54.406 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 18:41:54.514 [TestNG-tests-1] LoggerUtility - Failed - End test case Test02
+[INFO ] 2017-04-14 18:41:54.760 [TestNG-tests-1] LoggerUtility - Test02 execution completed
+[INFO ] 2017-04-14 18:41:55.518 [TestNG-tests-1] LoggerUtility - ***********************AfterTest****************************
+[INFO ] 2017-04-14 19:16:48.871 [TestNG-tests-1] LoggerUtility - ***********************BeforeTest****************************
+[INFO ] 2017-04-14 19:16:49.391 [TestNG-tests-1] LoggerUtility - Test01 execution started
+[INFO ] 2017-04-14 19:16:49.392 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 19:16:50.852 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 19:16:50.852 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 19:16:50.853 [TestNG-tests-1] LoggerUtility - Failed - End test case Test01
+[INFO ] 2017-04-14 19:16:50.854 [TestNG-tests-1] LoggerUtility - Test01 execution completed
+[INFO ] 2017-04-14 19:16:50.854 [TestNG-tests-1] LoggerUtility - Test02 execution started
+[INFO ] 2017-04-14 19:16:50.855 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 19:16:50.905 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 19:16:50.905 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 19:16:50.906 [TestNG-tests-1] LoggerUtility - Failed - End test case Test02
+[INFO ] 2017-04-14 19:16:50.909 [TestNG-tests-1] LoggerUtility - Test02 execution completed
+[INFO ] 2017-04-14 19:16:51.562 [TestNG-tests-1] LoggerUtility - ***********************AfterTest****************************
+[INFO ] 2017-04-14 19:18:46.892 [TestNG-tests-1] LoggerUtility - ***********************BeforeTest****************************
+[INFO ] 2017-04-14 19:18:47.449 [TestNG-tests-1] LoggerUtility - Test01 execution started
+[INFO ] 2017-04-14 19:18:47.450 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 19:18:49.133 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 19:18:49.134 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 19:18:49.135 [TestNG-tests-1] LoggerUtility - Failed - End test case Test01
+[INFO ] 2017-04-14 19:18:49.136 [TestNG-tests-1] LoggerUtility - Test01 execution completed
+[INFO ] 2017-04-14 19:18:49.137 [TestNG-tests-1] LoggerUtility - Test02 execution started
+[INFO ] 2017-04-14 19:18:49.138 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 19:18:49.187 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 19:18:49.187 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 19:18:49.188 [TestNG-tests-1] LoggerUtility - Failed - End test case Test02
+[INFO ] 2017-04-14 19:18:49.190 [TestNG-tests-1] LoggerUtility - Test02 execution completed
+[INFO ] 2017-04-14 19:18:49.661 [TestNG-tests-1] LoggerUtility - ***********************AfterTest****************************
+[INFO ] 2017-04-14 19:19:43.671 [TestNG-tests-1] LoggerUtility - ***********************BeforeTest****************************
+[INFO ] 2017-04-14 19:19:44.193 [TestNG-tests-1] LoggerUtility - Test01 execution started
+[INFO ] 2017-04-14 19:19:44.194 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 19:19:46.023 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 19:19:46.024 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 19:19:46.135 [TestNG-tests-1] LoggerUtility - Failed - End test case Test01
+[INFO ] 2017-04-14 19:19:46.240 [TestNG-tests-1] LoggerUtility - Test01 execution completed
+[INFO ] 2017-04-14 19:19:46.241 [TestNG-tests-1] LoggerUtility - Test02 execution started
+[INFO ] 2017-04-14 19:19:46.241 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 19:19:46.342 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 19:19:46.343 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 19:19:46.426 [TestNG-tests-1] LoggerUtility - Failed - End test case Test02
+[INFO ] 2017-04-14 19:19:46.630 [TestNG-tests-1] LoggerUtility - Test02 execution completed
+[INFO ] 2017-04-14 19:19:47.423 [TestNG-tests-1] LoggerUtility - ***********************AfterTest****************************
+[INFO ] 2017-04-14 19:20:49.593 [TestNG-tests-1] LoggerUtility - ***********************BeforeTest****************************
+[INFO ] 2017-04-14 19:20:50.171 [TestNG-tests-1] LoggerUtility - Test01 execution started
+[INFO ] 2017-04-14 19:20:50.173 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 20:17:18.491 [TestNG-tests-1] LoggerUtility - ***********************BeforeTest****************************
+[INFO ] 2017-04-14 20:17:19.043 [TestNG-tests-1] LoggerUtility - Test01 execution started
+[INFO ] 2017-04-14 20:17:19.044 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 20:17:48.060 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 20:17:48.060 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 20:17:48.180 [TestNG-tests-1] LoggerUtility - Failed - End test case Test01
+[INFO ] 2017-04-14 20:17:48.270 [TestNG-tests-1] LoggerUtility - Test01 execution completed
+[INFO ] 2017-04-14 20:17:48.270 [TestNG-tests-1] LoggerUtility - Test02 execution started
+[INFO ] 2017-04-14 20:17:48.271 [TestNG-tests-1] LoggerUtility - Launch Browser
+[INFO ] 2017-04-14 20:17:48.624 [TestNG-tests-1] LoggerUtility - Verify Page
+[ERROR] 2017-04-14 20:17:48.624 [TestNG-tests-1] LoggerUtility - Error - unable to verify page
+[INFO ] 2017-04-14 20:17:48.684 [TestNG-tests-1] LoggerUtility - Failed - End test case Test02
+[INFO ] 2017-04-14 20:17:49.086 [TestNG-tests-1] LoggerUtility - Test02 execution completed
+[INFO ] 2017-04-14 20:17:49.523 [TestNG-tests-1] LoggerUtility - ***********************AfterTest****************************

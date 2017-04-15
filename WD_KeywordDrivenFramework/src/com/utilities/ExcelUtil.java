@@ -5,8 +5,14 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFColor;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -292,7 +298,7 @@ public class ExcelUtil implements IExcelUtil
 		{
 			ExcelSheet = getExcelSheet(excelSheetName);
 			Row = ExcelSheet.getRow(rowNumber);
-			Cell = Row.getCell(colNumber);
+			Cell = Row.getCell(colNumber);			
 			if (Cell == null) 
 			{
 				   Cell = Row.createCell(colNumber);
@@ -301,8 +307,30 @@ public class ExcelUtil implements IExcelUtil
 			else 
 			{
 					Cell.setCellValue(result);
-			}			
-			
+			}
+			//XSSFCellStyle cellStyle = Cell.getCellStyle();
+			XSSFCellStyle cellStyle = ExcelWorkbook.createCellStyle();
+			XSSFFont cellFont = ExcelWorkbook.createFont();
+			cellFont.setBold(true);
+			cellStyle.setFont(cellFont);
+			// Setting cell style
+			if(result.equalsIgnoreCase(Constant.PASS))
+			{
+				cellStyle.setFillForegroundColor(IndexedColors.BRIGHT_GREEN.getIndex());
+				cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			}
+			else if(result.equalsIgnoreCase(Constant.FAIL))
+			{
+				cellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
+				cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			}
+			else if(result.equalsIgnoreCase(Constant.SKIP))
+			{
+				cellStyle.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
+				cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			}
+					
+			Cell.setCellStyle(cellStyle);
 			FileOutputStream fileOutputStream = new FileOutputStream(GlobalVariables.getExcelFilePath());
 			ExcelWorkbook.write(fileOutputStream);
 			fileOutputStream.close();
