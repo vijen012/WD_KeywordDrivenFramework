@@ -32,11 +32,11 @@ public class ExcelUtil implements IExcelUtil
 	@Override
 	public void setExcelFile(String fileName) 
 	{
-		String excelFilePath = GlobalVariables.getProjectDirPath()+"\\src\\com\\testscript\\" + fileName;
-		GlobalVariables.setExcelFilePath(excelFilePath);
+		String sourceExcelFilePath = GlobalVariables.getProjectDirPath()+"\\src\\com\\testscript\\" + fileName;
+		GlobalVariables.setExcelFilePath(sourceExcelFilePath);
 		try 
 		{
-			File file = new File(excelFilePath);
+			File file = new File(sourceExcelFilePath);
 			FileInputStream fileInputStream = new FileInputStream(file);			
 			ExcelWorkbook = new XSSFWorkbook(fileInputStream);			
 		} 
